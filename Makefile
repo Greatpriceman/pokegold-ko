@@ -40,13 +40,13 @@ compare: pokegoldkorean.gbc pokesilverkorean.gbc
 %_silver.o: %.asm $$(dep)
 	rgbasm -D SILVER -o $@ $<
 
-pokegold.gbc: $(gold_obj)
+pokegoldkorean.gbc: $(gold_obj)
 	rgblink -n pokegold.sym -m pokegold.map -l pokegold.ld -o $@ $^
-	rgbfix -cjsv -i AAUE -k 01 -l 0x33 -m 0x10 -p 0 -r 3 -t "POKEMON_GLD" $@
+	rgbfix -cjsv -i AAUK -k 01 -l 0x33 -m 0x10 -p 0 -r 3 -t "POKEMON_GLD" $@
 
-pokesilver.gbc: $(silver_obj)
+pokesilverkorean.gbc: $(silver_obj)
 	rgblink -n pokesilver.sym -m pokesilver.map -l pokegold.ld -o $@ $^
-	rgbfix -cjsv -i AAXE -k 01 -l 0x33 -m 0x10 -p 0 -r 3 -t "POKEMON_SLV" $@
+	rgbfix -cjsv -i AAXK -k 01 -l 0x33 -m 0x10 -p 0 -r 3 -t "POKEMON_SLV" $@
 
 pngs:
 	find . -iname "*.lz"      -exec $(gfx) unlz {} +
