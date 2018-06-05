@@ -10,3 +10,5 @@ Pocket Monsters Eun (Korea).gbc (Silver Version) ``MD5: 9B09942F728DF561C3921167
 there is no way to build a rom yet, as it will need further disassembly and labeling.
 
 others are free to help out with said further disassembly and editing as long as the rom is the same.
+
+The baseroms needed are the ones listed, plus compare differences between English versions and Korean versions.

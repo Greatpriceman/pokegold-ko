@@ -8,10 +8,10 @@ Func_436: ; 436 (0:436)
 	ld b, a
 	res 0, a
 	ld [$ffff], a
-.asm_445
+.asm_445 ;.wait
 	ld a, [$ff44]
 	cp $91
-	jr nz, .asm_445
+	jr nz, .asm_445 ;.wait
 	ld a, [$ff40]
 	and $7f
 	ld [$ff40], a
