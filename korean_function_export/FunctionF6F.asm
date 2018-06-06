@@ -1,15 +1,19 @@
-Func_f6f: ; f6f (0:f6f)
+Func_f6f: ; f6f (0:f6f) this might be PlaceString
 	push hl
+functionf70:: ; which may mean that this is PlaceNextChar
 	ld a, [de]
 	cp $50
-	jr nz, .asm_f7e
+	jr nz, .asm_f7e ;could be CheckDict
 	ld b, h
 	ld c, l
 	pop hl
 	ret
+
 	pop de
+
+;NextChar, F7A
 	inc de
-	jp Func_f70
+	jp Func_f70 ;PlaceNextChar
 .asm_f7e
 	cp $0c
 	jp c, $Func_1229
@@ -82,29 +86,29 @@ Func_f6f: ; f6f (0:f6f)
 	cp $4f
 	jp z, Func_10fb
 	cp $e4
-	jr z, .asm_1030
+	jr z, .asm_1030 ;geting very convinced, this might be .diacritic
 	cp $e5
-	jr nz, .asm_1037
+	jr nz, .asm_1037 ;convinced, this is .not_diacritic
 .asm_1030
 	ld b, a
 	call Func_1270
-	jp Func_f7a
+	jp Func_f7a ;nextchar
 .asm_1037
 	cp $60
-	jr nc, .asm_105f
+	jr nc, .asm_105f ;.place
 	cp $3d
-	jr nc, .asm_1050
+	jr nc, .asm_1050 ;handakuten
 	cp $24
-	jr nc, .asm_1047
-	add $79
-	jr .asm_1049
+	jr nc, .asm_1047 ;daku 
+	add $79 ;Why is it $79 and not $80
+	jr .asm_1049 ;daku2
 .asm_1047
 	add $92
 .asm_1049
 	ld b, $e5
-	call Func_1270
-	jr .asm_105f
-.asm_1050
+	call Func_1270 ;Diacritic
+	jr .asm_105f ;.place
+.asm_1050 ;handakuten
 	cp $41
 	jr nc, .asm_1058
 	add $5c
@@ -113,9 +117,9 @@ Func_f6f: ; f6f (0:f6f)
 	add $89
 .asm_105a
 	ld b, $e4
-	call Func_1270
+	call Func_1270 ;Diacritic
 .asm_105f
 	ld [hli], a
 	call Func_3280
-	jp Func_f7a
+	jp Func_f7a ;NextChar
 ; 0x1066
