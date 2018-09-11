@@ -14,7 +14,7 @@ functionf70:: ; which may mean that this is PlaceNextChar
 ;NextChar, F7A
 	inc de
 	jp Func_f70 ;PlaceNextChar
-.asm_f7e
+.asm_f7e ;CheckDict
 	cp $0c
 	jp c, $Func_1229
 	cp $5a
@@ -72,7 +72,7 @@ functionf70:: ; which may mean that this is PlaceNextChar
 	cp $33
 	jp z, Func_10c1
 	cp $34
-	jp z, Func_f7a
+	jp z, Func_f7a;NextChar
 	cp $1d
 	jr nz, .asm_1014
 	ld a, $7f
